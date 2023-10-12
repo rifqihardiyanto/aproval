@@ -81,35 +81,37 @@ class AuthController extends Controller
 
     public function login_member(Request $request)
     {
+        return view('auth.login_member',[
+            'title' => 'Login'
+        ]);
+    }
+
+    public function login_member_action(Request $request)
+    {
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
         if ($validator->fails()){
-            return response()->json($validator->errors(), 422);
+            session()->flash('status', 'Email atau Password Salah!');
+            return redirect('login_member');
         }
-        
-        
+
+        $credentials = $request->only('email', 'password');
         $member = Member::where('email', $request->email)->first();
         if($member){
-            if(Hash::check($request->password, $member->password)){
+            if( Auth::guard('webmember')->attempt($credentials)){
                 $request->session()->regenerate();
-                return response()->json([
-                    'message' => 'berhasil',
-                    'data' => $member
-            ]);
+                return redirect()->route('dashboard-member');
+            }else{
+            session()->flash('status', 'Email atau Password Salah!');
+            return redirect('login_member');
+            }
         }else{
-            return response()->json([
-                'message' => 'gagal',
-                'data' => 'Password Salah'
-            ]);
-        }
-        }else{
-            return response()->json([
-                'message' => 'gagal',
-                'data' => 'Email Salah'
-            ]);
+            session()->flash('status', 'Email atau Password Salah!');
+            return redirect('login_member');
         }
     }
 
@@ -121,7 +123,8 @@ class AuthController extends Controller
 
     public function logout_member()
     {
+        Auth::guard('webmember');
         Session::flush();
-        return redirect('/login');
+        return redirect('/login_member');
     }
 }

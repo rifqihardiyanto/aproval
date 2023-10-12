@@ -69,7 +69,14 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_member' => 'required'
+            'id_member' => 'required',
+            'nama_pemohon' => 'required',
+            'keperluan' => 'required',
+            'keterangan' => '',
+            'jumlah' => 'required',
+            'harga' => 'required',
+            'total_harga' => 'required',
+            'status' => 'required',
         ]);
 
         if ($validator->fails()){
@@ -77,22 +84,22 @@ class OrderController extends Controller
         }
 
         $input = $request->all();
-        $order = Order::create($input);
-
-        for ($i=0; $i <count($input['id_produk']) ; $i++) { 
-            OrderDetail::create([
-                'id_order' => $order['id'],
-                'id_produk' => $input['id_produk'][$i],
-                'jumlah' => $input['jumlah'][$i],
-                'size' => $input['sizeduk'][$i],
-                'color' => $input['color'][$i],
-                'total' => $input['total'][$i],
-            ]);
+        if ($request->has('gambar')){
+            $gambar = $request->file('gambar');
+            $nama_gambar = time() . rand(1,9) . '.' .$gambar->getClientOriginalExtension();
+            $gambar->move('uploads', $nama_gambar);
+            $input['gambar'] =  $nama_gambar;
         }
 
-         return response()->json([
+        {
+            $order = Order::create($input);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Berhasil di Tambah',
                 'data' => $order
             ]);
+        }
         
     }
 

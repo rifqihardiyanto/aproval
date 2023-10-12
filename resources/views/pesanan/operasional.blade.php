@@ -18,10 +18,14 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Tanggal Pesanan</th>
-                            <th>Invoice</th>
+                            <th>Tanggal Pengajuan</th>
                             <th>Member</th>
-                            <th>Total</th>
+                            <th>Nama Pemohon</th>
+                            <th>Keperluan</th>
+                            <th>Keterangan</th>
+                            <th>Jumlah</th>
+                            <th>Harga</th>
+                            <th>Total Harga</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -66,9 +70,13 @@
                         <tr> 
                             <td> ${index+1} </td> 
                             <td> ${date(val.created_at)} </td> 
-                            <td> ${val.invoice} </td> 
                             <td> ${val.member.nama_member} </td> 
-                            <td> ${rupiah(val.total)} </td> 
+                            <td> ${val.nama_pemohon} </td> 
+                            <td> ${val.keperluan} </td> 
+                            <td> ${val.keterangan} </td> 
+                            <td> ${val.jumlah} </td> 
+                            <td> ${val.harga} </td> 
+                            <td> ${rupiah(val.total_harga)} </td> 
                             <td>
                                 <a href="" data-id="${val.id}" class="btn btn-success btn-accept">Accept</a>    
                                 <a href="" data-id="${val.id}" class="btn btn-danger btn-cancel">Cancel</a>    

@@ -14,21 +14,15 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('id_member');
-            $table->integer('invoice');
-            $table->integer('total');
+            $table->string('nama_pemohon');
+            $table->text('keperluan');
+            $table->string('jumlah');
+            $table->string('harga');
+            $table->string('total_harga');
+            $table->text('keterangan');
             $table->timestamps();
         });
 
-        Schema::create('order_details', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id_order');
-            $table->integer('id_produk');
-            $table->integer('jumlah');
-            $table->string('size');
-            $table->string('color');
-            $table->integer('total');
-            $table->timestamps();
-        });
     }
 
     /**

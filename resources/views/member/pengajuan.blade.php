@@ -3,7 +3,7 @@
 
 @section('container')
     <!-- Begin Page Content -->
-    <h1 class="h3 mb-4 text-gray-800">@yield('title')</h1>
+    {{-- <h1 class="h3 mb-4 text-gray-800">@yield('title')</h1> --}}
     <!-- /.container-fluid -->
 
     <div class="row justify-content-center">

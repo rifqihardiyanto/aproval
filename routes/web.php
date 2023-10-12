@@ -40,11 +40,11 @@ Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
 Route::get('logout', [AuthController::class, 'logout']);
 
-Route::get('login_member', [AuthController::class, 'login_member']);
+Route::get('login_member', [AuthController::class, 'login_member'])->name('login_member');
 Route::get('/logout/member', [AuthController::class, 'logout_member']);
 Route::post('login_member', [AuthController::class, 'login_member_action']);
 
-Route::get('dashboard/member', [DashboardMemberController::class, 'index'])->name('dashboard-member');
+Route::get('dashboard/member', [DashboardMemberController::class, 'index'])->name('dashboard-member')->middleware('member');
 
 
 // konfirmasi pengajuan

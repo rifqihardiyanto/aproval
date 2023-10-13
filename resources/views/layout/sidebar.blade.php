@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="{{ url('/dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -40,16 +40,16 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         @can('operasional')
-                        <a class="collapse-item" href="/pengajuan/operasional">Pengajuan Baru</a>
+                        <a class="collapse-item" href="{{ url('/pengajuan/operasional') }}">Pengajuan Baru</a>
                         @endcan
                         @can('keuangan')
-                        <a class="collapse-item" href="/pengajuan/keuangan">Pengajuan Baru</a>
+                        <a class="collapse-item" href="{{ url('/pengajuan/keuangan') }}">Pengajuan Baru</a>
                         @endcan
                         @can('admin')
-                        <a class="collapse-item" href="/pengajuan/admin">Pengajuan Baru</a>
+                        <a class="collapse-item" href="{{ url('/pengajuan/admin') }}">Pengajuan Baru</a>
                         @endcan
-                        <a class="collapse-item" href="/pengajuan/selesai">Pengajuan Selesai</a>
-                        <a class="collapse-item" href="/pengajuan/tolak">Pengajuan Di Tolak</a>
+                        <a class="collapse-item" href="{{ url('/pengajuan/selesai') }}">Pengajuan Selesai</a>
+                        <a class="collapse-item" href="{{ url('/pengajuan/tolak') }}">Pengajuan Di Tolak</a>
                     </div>
                 </div>
             </li>

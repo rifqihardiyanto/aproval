@@ -14,6 +14,11 @@ class PengajuanController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('member');
+    }
+    
     public function index()
     {   
         $order = Order::where('id_member',  auth::guard('webmember')->user()->id)->latest()->get();

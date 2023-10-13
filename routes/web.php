@@ -32,8 +32,12 @@ Route::get('/', function () {
 });
 
 
-// Route::post('login', [AuthController::class, 'login_member']);
-// Route::post('logout', [AuthController::class, 'logout_member']);
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function(){
+    
+});
 
 // auth
 Route::get('login', [AuthController::class, 'index'])->name('login');
@@ -49,8 +53,8 @@ Route::get('dashboard/member', [DashboardMemberController::class, 'index'])->nam
 
 // konfirmasi pengajuan
 Route::get('/pengajuan/operasional', [OrderController::class, 'list'])->middleware('operasional');
-Route::get('/pengajuan/keuangan', [OrderController::class, 'list_2']);
-Route::get('/pengajuan/admin', [OrderController::class, 'list_3']);
+Route::get('/pengajuan/keuangan', [OrderController::class, 'list_2'])->middleware('keuangan');
+Route::get('/pengajuan/admin', [OrderController::class, 'list_3'])->middleware('admin');
 Route::get('/pengajuan/selesai', [OrderController::class, 'list_4']);
 Route::get('/pengajuan/tolak', [OrderController::class, 'list_tolak']);
 

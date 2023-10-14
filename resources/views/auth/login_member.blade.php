@@ -49,7 +49,7 @@
                                     @if ($errors->any())
                                         {{ implode('', $errors->all('<div>:message</div>')) }}
                                     @endif
-                                    <form class="form-login user" method="POST" action="login_member">
+                                    <form class="form-login user" method="POST" action="{{ url('login_member') }}">
                                         @csrf
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user email"

@@ -41,32 +41,24 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <strong>Gagal</strong>
-                                            <p>{{ $errors->first() }}</p>
+                                    @if (session('status'))
+                                        <div class="text-success text-start mb-3">
+                                            <span class="text-2">{{ session('status') }}</span>
                                         </div>
                                     @endif
-                                    <form class="form-login user" method="post" action="/login">
+                                    @if ($errors->any())
+                                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                                    @endif
+                                    <form class="form-login user" method="post" action="{{ url('login') }}">
                                         @csrf
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user email"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="email" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." name="email">
-                                            @error('email')
-                                                <small class="text-danger">
-                                                    {{ $message }}
-                                                </small>
-                                            @enderror
                                         </div>
                                         <div class="form-group mb-6">
                                             <input type="password" class="form-control form-control-user password"
-                                                id="exampleInputPassword" placeholder="Password" name="password">
-                                            @error('password')
-                                                <small class="text-danger">
-                                                    {{ $message }}
-                                                </small>
-                                            @enderror
+                                                id="password" placeholder="Password" name="password">
                                         </div>
 
                                         <button type="submit" class="btn btn-primary btn-user btn-block">

@@ -13,6 +13,7 @@
             </div>
         </div>
         <div class="card-body">
+            <a href="{{ url('/exportpdf') }}"><button type="button" class="btn btn-primary mb-4">Primary</button></a>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover table-striped">
                     <thead>

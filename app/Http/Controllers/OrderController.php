@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -53,6 +55,14 @@ class OrderController extends Controller
         return view('pesanan.ditolak', [
             'title' => 'Pengajuan Ditolak'
         ]);
+    }
+
+    public function exportpdf(){
+        $order = Order::with('member')->where('status', 'selesai')->orderBy('id', 'desc')->get();
+
+        view()->share('order', $order);
+        $pdf = Pdf::loadView('pdf.selesai');
+        return $pdf->download('selesai.pdf');
     }
 
     /**

@@ -12,6 +12,18 @@
                 Data @yield('title')
             </div>
         </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive">
+                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">
+                            <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button>
+                            <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button>
+                            <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button>
+                            <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button>
+                            <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button>
+                            </div>
+                        </div>
+                    </div>
+                            <tbody>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover table-striped">
@@ -26,6 +38,7 @@
                             <th>Total</th>
                             <th>Keterangan</th>
                             <th>Status</th>
+                            <th>View</th>
                         </tr>
                         @foreach ($order as $data )
                             <tr>
@@ -38,6 +51,8 @@
                                 <th>{{ $data->total_harga }}</th>
                                 <th>{{ $data->keterangan }}</th>
                                 <th>{{ $data->status }}</th>
+                                <td class="tex-center" style="width:15%">
+                                <a href="{{ url('/cetak') }}" class="btn btn-outline-primary  btn-sm"><i class="fa fa-eye"></i></i></a>
                             </tr>
                         @endforeach
                     </thead>

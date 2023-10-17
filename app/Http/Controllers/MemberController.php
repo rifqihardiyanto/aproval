@@ -13,8 +13,8 @@ class MemberController extends Controller
 {
     public function __construct()
     {
-     $this->middleware('auth:api', ['except' => 'index']);   
-    } 
+     $this->middleware('auth:api', ['except' => 'index']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -102,7 +102,7 @@ class MemberController extends Controller
         }
 
         $input = $request->all();
-        
+
         if ($request->has('gambar')){
             File::delete('uploads/' . $member->gambar);
 
@@ -133,4 +133,7 @@ class MemberController extends Controller
             'message' => 'Berhasil Dihapus'
         ]);
     }
+
+
+
 }

@@ -16,7 +16,7 @@ class OrderController extends Controller
     {
         $this->middleware('auth')->only(['list', 'list_2', 'list_3', 'list_tolak']);
         $this->middleware('auth:api')->only(['store', 'update', 'destroy', 'ubah_status', 'baru', 'dikonfirmasi_1', 'dikonfirmasi_2', 'ditolak', 'selesai']);
-    } 
+    }
     /**
      * Display a listing of the resource.
      */
@@ -28,6 +28,18 @@ class OrderController extends Controller
             'data' =>$order]);
     }
 
+    public function lihat()
+    {
+        return view('pesanan.view', [
+            'title' => 'Pengajuan Baru'
+        ]);
+    }
+    public function cetak()
+    {
+        return view('member.print',[
+            'title' => 'Print'
+        ]);
+    }
     public function list() {
         return view('pesanan.operasional', [
             'title' => 'Pengajuan Baru'
@@ -100,7 +112,7 @@ class OrderController extends Controller
                 'data' => $order
             ]);
         }
-        
+
     }
 
     /**
@@ -139,7 +151,7 @@ class OrderController extends Controller
 
         OrderDetail::where('id_order', $order['id'])->delete();
 
-        for ($i=0; $i <count($input['id_produk']) ; $i++) { 
+        for ($i=0; $i <count($input['id_produk']) ; $i++) {
             OrderDetail::create([
                 'id_order' => $order['id'],
                 'id_produk' => $input['id_produk'][$i],
@@ -192,7 +204,7 @@ class OrderController extends Controller
         return response()->json([
             'data' =>$order]);
     }
-    
+
     public function ditolak()
     {
         $order = Order::with('member')->where('status', 'ditolak-operasional')->orWhere('status', 'ditolak-keuangan')->orderBy('id', 'desc')->get();
@@ -205,7 +217,7 @@ class OrderController extends Controller
     public function selesai()
     {
         $order = Order::with('member')->where('status', 'selesai')->orderBy('id', 'desc')->get();
-        
+
         return response()->json([
             'data' =>$order]);
     }

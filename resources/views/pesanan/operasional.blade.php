@@ -67,19 +67,21 @@
                     let row;
                     data.map(function(val, index) {
                         row += `
-                        <tr> 
-                            <td> ${index+1} </td> 
-                            <td> ${date(val.created_at)} </td> 
-                            <td> ${val.member.nama_member} </td> 
-                            <td> ${val.nama_pemohon} </td> 
-                            <td> ${val.keperluan} </td> 
-                            <td> ${val.keterangan} </td> 
-                            <td> ${val.jumlah} </td> 
-                            <td> ${val.harga} </td> 
-                            <td> ${rupiah(val.total_harga)} </td> 
-                            <td>
-                                <a href="" data-id="${val.id}" class="btn btn-success btn-accept">Accept</a>    
-                                <a href="" data-id="${val.id}" class="btn btn-danger btn-cancel">Cancel</a>    
+                        <tr>
+                            <td> ${index+1} </td>
+                            <td> ${date(val.created_at)} </td>
+                            <td> ${val.member.nama_member} </td>
+                            <td> ${val.nama_pemohon} </td>
+                            <td> ${val.keperluan} </td>
+                            <td> ${val.keterangan} </td>
+                            <td> ${val.jumlah} </td>
+                            <td> ${val.harga} </td>
+                            <td> ${rupiah(val.total_harga)} </td>
+                            <td >
+                                <a href="" data-id="${val.id}" class="btn btn-success btn-accept">Accept</a>
+                                <a href="" data-id="${val.id}" class="btn btn-danger btn-cancel">Cancel</a>
+
+                                <a href="{{ url('/show') }}" class="btn btn-primary btn-accept">Lihat Detail</a>
                             </td>
                         </tr>`;
                     });

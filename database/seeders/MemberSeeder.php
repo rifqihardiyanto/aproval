@@ -14,9 +14,9 @@ class MemberSeeder extends Seeder
     public function run(): void
     {
         Member::create([
-            'nama_member' => 'Bisma',
+            'nama_member' => 'ari',
             'no_hp' => '081245678978',
-            'email' => 'b@gmail.com',
+            'email' => 'ad@gmail.com',
             'password' => bcrypt('123456'),
         ]);
     }

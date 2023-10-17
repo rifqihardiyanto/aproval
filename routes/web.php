@@ -36,7 +36,7 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 ], function(){
-    
+
 });
 
 // auth
@@ -57,11 +57,15 @@ Route::get('/pengajuan/keuangan', [OrderController::class, 'list_2'])->middlewar
 Route::get('/pengajuan/admin', [OrderController::class, 'list_3'])->middleware('admin');
 Route::get('/pengajuan/selesai', [OrderController::class, 'list_4']);
 Route::get('/pengajuan/tolak', [OrderController::class, 'list_tolak']);
+Route::get('/show', [OrderController::class, 'lihat']);
 
-// 
+//
 Route::get('/data/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 Route::get('/pengajuan', [PengajuanController::class, 'view_pengajuan']);
 Route::post('/pengajuan/store', [PengajuanController::class, 'store']);
+Route::get('/cetak', [OrderController::class, 'cetak']);
+
+
 
 
 

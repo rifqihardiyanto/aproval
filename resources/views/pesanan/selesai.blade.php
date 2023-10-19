@@ -76,7 +76,7 @@
                             <td> ${val.keterangan} </td> 
                             <td> ${val.jumlah} </td> 
                             <td> ${val.harga} </td> 
-                            <td> ${val.total_harga} </td> 
+                            <td> $${rupiah(val.total_harga)} </td> 
                             <td> ${val.status} </td>
                         </tr>`;
                     });

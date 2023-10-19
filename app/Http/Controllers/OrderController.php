@@ -127,7 +127,14 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         $validator = Validator::make($request->all(), [
-            'id_member' => 'required'
+            'nama_member' => '',
+            'nama_pemohon' => '',
+            'keperluan' => '',
+            'keterangan' => '',
+            'jumlah' => '',
+            'harga' => '',
+            'total_harga' => '',
+            'status' => 'required',
         ]);
 
         if ($validator->fails()){
@@ -136,22 +143,9 @@ class OrderController extends Controller
 
         $input = $request->all();
         $order->update($input);
-
-        OrderDetail::where('id_order', $order['id'])->delete();
-
-        for ($i=0; $i <count($input['id_produk']) ; $i++) { 
-            OrderDetail::create([
-                'id_order' => $order['id'],
-                'id_produk' => $input['id_produk'][$i],
-                'jumlah' => $input['jumlah'][$i],
-                'size' => $input['sizeduk'][$i],
-                'color' => $input['color'][$i],
-                'total' => $input['total'][$i],
-            ]);
-        }
-
         return response()->json([
-            'message' => 'Berhasil DiUpdate',
+            'success' => true,
+            'message' => 'Konfirmasi Berhasil ',
             'data' => $order
         ]);
     }
@@ -195,7 +189,7 @@ class OrderController extends Controller
     
     public function ditolak()
     {
-        $order = Order::with('member')->where('status', 'ditolak-operasional')->orWhere('status', 'ditolak-keuangan')->orderBy('id', 'desc')->get();
+        $order = Order::with('member')->orderBy('id', 'desc')->get();
 
         return response()->json([
             'data' =>$order]);

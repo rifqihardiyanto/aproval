@@ -33,7 +33,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pengajuan"
                     aria-expanded="true" aria-controls="pengajuan">
-                    <i class="fas fa-fw fa-shopping-cart"></i>
+                    <i class="fas fa-fw fa-book"></i>
                     <span>Data Pengajuan</span>
                 </a>
                 <div id="pengajuan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -48,17 +48,24 @@
                         @can('admin')
                         <a class="collapse-item" href="{{ url('/pengajuan/admin') }}">Pengajuan Baru</a>
                         @endcan
-                        <a class="collapse-item" href="{{ url('/pengajuan/selesai') }}">Pengajuan Selesai</a>
-                        <a class="collapse-item" href="{{ url('/pengajuan/tolak') }}">Pengajuan Di Tolak</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan"
+                    aria-expanded="true" aria-controls="pengajuan">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Laporan</span></a>
+                    <span>Laporan</span>
+                </a>
+                <div id="laporan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="{{ url('/pengajuan/selesai') }}">Pengajuan Selesai</a>
+                        <a class="collapse-item" href="{{ url('/pengajuan/tolak') }}">Semua Pengajuan</a>
+                    </div>
+                </div>
             </li>
 
 

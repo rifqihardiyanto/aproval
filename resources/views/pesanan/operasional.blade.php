@@ -34,6 +34,37 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modal-form" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Data Pengajuan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-data">
+                                <div class="form-group">
+                                    <label for="">Alasan</label>
+                                    <input type="text" class="form-control" name="status"
+                                        placeholder="Alasan">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('js')
@@ -78,8 +109,8 @@
                             <td> ${val.harga} </td> 
                             <td> ${rupiah(val.total_harga)} </td> 
                             <td>
-                                <a href="" data-id="${val.id}" class="btn btn-success btn-accept">Accept</a>    
-                                <a href="" data-id="${val.id}" class="btn btn-danger btn-cancel">Cancel</a>    
+                                <a href="" data-id="${val.id}" class="btn mb-2 btn-success btn-accept">Accept</a>    
+                                <a data-toogle="modal" href="#modal-form" data-id="${val.id}" class="btn mb-2 btn-danger modal-ubah">Cancel</a>    
                             </td>
                         </tr>`;
                     });
@@ -102,28 +133,47 @@
                         "Authorization": "Bearer" + token
                     },
                     success: function(data) {
+                        alert("Pengajuan Berhasil Dikonfirmasi!");
                         location.reload()
                     }
                 })
             })
 
-            $(document).on('click', '.btn-cancel', function() {
-                const id = $(this).data('id')
+            $(document).on('click', '.modal-ubah', function() {
+                $('#modal-form').modal('show')
+                const id = $(this).data('id');
 
-
-                $.ajax({
-                    url: '/api/pengajuan/ubah_status/' + id,
-                    type: "POST",
-                    data: {
-                        status: 'ditolak-operasional'
-                    },
-                    headers: {
-                        "Authorization": "Bearer" + token
-                    },
-                    success: function(data) {
-                        location.reload()
-                    }
+                $.get('/api/orders/' + id, function({
+                    data
+                }) {
+                    $('input[name="status"]').val('');
                 })
+
+                $('.form-data').submit(function(e) {
+                    e.preventDefault()
+                    const token = localStorage.getItem('token')
+
+                    const frmdata = new FormData(this);
+
+                    $.ajax({
+                        url: `/api/orders/${id}?_method=PUT`,
+                        type: 'POST',
+                        data: frmdata,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        headers: {
+                            "Authorization": "Bearer" + token
+                        },
+                        success: function(data) {
+                            if (data.success) {
+                                alert("Pengajuan Berhasil Ditolak!");
+                                location.reload();
+                            }
+                        }
+                    })
+                })
+                
             })
         });
     </script>

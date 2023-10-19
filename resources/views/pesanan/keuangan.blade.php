@@ -112,7 +112,7 @@
                                 <a href="" data-id="${val.id}" class="btn mb-2 btn-success btn-accept">Accept</a>    
                                 <a data-toogle="modal" href="#modal-form" data-id="${val.id}" class="btn mb-2 btn-danger modal-ubah">Cancel</a>    
                             </td>
-                        </tr>`;
+                        </tr>`
                     });
 
                     $('tbody').append(row);

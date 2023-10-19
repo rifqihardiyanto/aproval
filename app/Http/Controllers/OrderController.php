@@ -173,7 +173,7 @@ class OrderController extends Controller
 
     public function dikonfirmasi_1()
     {
-        $order = Order::with('member')->where('status', 'dikonfirmasi-operasional')->orderBy('id', 'desc')->get();
+        $order = Order::with('member')->where('status', 'dikonfirmasi-operasional')->get();
 
         return response()->json([
             'data' =>$order]);
@@ -181,7 +181,7 @@ class OrderController extends Controller
 
     public function dikonfirmasi_2()
     {
-        $order = Order::with('member')->where('status', 'dikonfirmasi-keuangan')->orderBy('id', 'desc')->get();
+        $order = Order::with('member')->where('status', 'dikonfirmasi-keuangan')->get();
 
         return response()->json([
             'data' =>$order]);

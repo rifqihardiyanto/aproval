@@ -118,13 +118,13 @@ class AuthController extends Controller
     public function logout()
     {
         Session::flush();
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function logout_member()
     {
         Auth::guard('webmember');
         Session::flush();
-        return redirect('/login_member');
+        return redirect('/');
     }
 }

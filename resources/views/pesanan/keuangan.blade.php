@@ -26,7 +26,7 @@
                             <th>Jumlah</th>
                             <th>Harga</th>
                             <th>Total Harga</th>
-                            <th>Aksi</th>
+                            <th>Konfirmasi</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -110,7 +110,7 @@
                             <td> ${rupiah(val.total_harga)} </td> 
                             <td>
                                 <a href="" data-id="${val.id}" class="btn mb-2 btn-success btn-accept">Accept</a>    
-                                <a data-toogle="modal" href="#modal-form" data-id="${val.id}" class="btn mb-2 btn-danger modal-ubah">Cancel</a>    
+                                <a data-toogle="modal" href="#modal-form" data-id="${val.id}" class="btn mb-2 btn-danger modal-ubah">Reject</a>    
                             </td>
                         </tr>`
                     });

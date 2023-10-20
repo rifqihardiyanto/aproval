@@ -26,7 +26,7 @@
                             <th>Jumlah</th>
                             <th>Harga</th>
                             <th>Total Harga</th>
-                            <th>Aksi</th>
+                            <th>Konfirmasi</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -75,7 +75,7 @@
                             <td> ${val.keperluan} </td> 
                             <td> ${val.keterangan} </td> 
                             <td> ${val.jumlah} </td> 
-                            <td> ${val.harga} </td> 
+                            <td> ${rupiah(val.harga)} </td> 
                             <td> ${rupiah(val.total_harga)} </td> 
                             <td> ${val.status} </td>
                         </tr>`;

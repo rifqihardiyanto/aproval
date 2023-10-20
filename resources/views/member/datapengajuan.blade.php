@@ -26,6 +26,7 @@
                             <th>Total</th>
                             <th>Keterangan</th>
                             <th>Konfirmasi</th>
+                            <th>Lihat</th>
                         </tr>
                         @foreach ($order as $data )
                             <tr>
@@ -34,10 +35,11 @@
                                 <th>{{ $data->nama_pemohon }}</th>
                                 <th>{{ $data->keperluan }}</th>
                                 <th>{{ $data->jumlah }}</th>
-                                <th>{{ $data->harga }}</th>
-                                <th>{{ $data->total_harga }}</th>
+                                <th>Rp. {{ $data->harga }}</th>
+                                <th>Rp. {{ $data->total_harga }}</th>
                                 <th>{{ $data->keterangan }}</th>
                                 <th>{{ $data->status }}</th>
+                                <th><a href="{{ url('pengajuan/'.$data->id) }}"><button type="button" class="btn btn-info">Info</button></a></th>
                             </tr>
                         @endforeach
                     </thead>

@@ -58,6 +58,10 @@ Route::get('/pengajuan/admin', [OrderController::class, 'list_3'])->middleware('
 Route::get('/pengajuan/selesai', [OrderController::class, 'list_4']);
 Route::get('/pengajuan/tolak', [OrderController::class, 'list_tolak']);
 
+Route::get('pengajuan/{id}', [OrderController::class, 'show']);
+
+Route::get('/print/{id}', [OrderController::class, 'print_pdf']);
+
 // 
 Route::get('/data/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 Route::get('/pengajuan', [PengajuanController::class, 'view_pengajuan']);

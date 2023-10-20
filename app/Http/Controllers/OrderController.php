@@ -9,6 +9,8 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\View\View;
 
 class OrderController extends Controller
 {
@@ -106,10 +108,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(string $id): View
     {
-        return response()->json([
-            'data' => $order
+        return view('pdf.selesai', [
+            'order' => Order::findOrFail($id)
         ]);
     }
 
@@ -215,5 +217,13 @@ class OrderController extends Controller
         return response()->json([
             'message' => 'Berhasil Dihapus'
         ]);
+    }
+
+    public function print_pdf(string $id)
+    {
+        $order = Order::findOrFail($id);
+    
+        $pdf = PDF::loadview('pdf.print2',['order'=>$order]);
+        return $pdf->stream();
     }
 }

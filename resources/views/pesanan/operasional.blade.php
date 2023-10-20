@@ -106,7 +106,7 @@
                             <td> ${val.keperluan} </td> 
                             <td> ${val.keterangan} </td> 
                             <td> ${val.jumlah} </td> 
-                            <td> ${val.harga} </td> 
+                            <td> ${rupiah(val.harga)} </td> 
                             <td> ${rupiah(val.total_harga)} </td> 
                             <td>
                                 <a href="" data-id="${val.id}" class="btn mb-2 btn-success btn-accept">Accept</a>    

@@ -17,10 +17,6 @@ font-size: 17px;
 font-family: Arial;">
     <header style="padding: 10px 0;
     margin-bottom: 30px;" class="clearfix">
-      <div style="text-align: center;
-      margin-bottom: 10px;" id="logo">
-        <img style="width: 90px;" src="">
-      </div>
       <h1 style="border-top: 1px solid  #5D6975;
       border-bottom: 1px solid  #5D6975;
       color: #5D6975;

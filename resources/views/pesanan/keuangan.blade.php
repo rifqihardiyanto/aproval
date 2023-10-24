@@ -48,8 +48,7 @@
                             <form class="form-data">
                                 <div class="form-group">
                                     <label for="">Alasan</label>
-                                    <input type="text" class="form-control" name="status"
-                                        placeholder="Alasan">
+                                    <input type="text" class="form-control" name="status" placeholder="Alasan">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -124,7 +123,7 @@
 
 
                 $.ajax({
-                    url: '/api/pengajuan/ubah_status/' + id,
+                    url: '{{ '/api/pengajuan/ubah_status/' }}' + id,
                     type: "POST",
                     data: {
                         status: 'dikonfirmasi-keuangan'
@@ -139,11 +138,12 @@
                 })
             })
 
+
             $(document).on('click', '.modal-ubah', function() {
                 $('#modal-form').modal('show')
                 const id = $(this).data('id');
 
-                $.get('/api/orders/' + id, function({
+                $.get('{{ '/api/orders/' }}' + id, function({
                     data
                 }) {
                     $('input[name="status"]').val('');
@@ -156,7 +156,7 @@
                     const frmdata = new FormData(this);
 
                     $.ajax({
-                        url: `/api/orders/${id}?_method=PUT`,
+                        url: `{{ '/api/orders/' }}${id}?_method=PUT`,
                         type: 'POST',
                         data: frmdata,
                         cache: false,
@@ -173,7 +173,7 @@
                         }
                     })
                 })
-                
+
             })
         });
     </script>

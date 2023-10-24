@@ -63,7 +63,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{ url('/pengajuan/selesai') }}">Pengajuan Selesai</a>
-                        <a class="collapse-item" href="{{ url('/pengajuan/tolak') }}">Semua Pengajuan</a>
+                        @canany(['keuangan', 'operasional'])
+                        <a class="collapse-item" href="{{ url('/pengajuan/semua') }}">Semua Pengajuan</a>
+                        @endcanany
                     </div>
                 </div>
             </li>

@@ -87,7 +87,7 @@
 
             const token = localStorage.getItem('token');
             $.ajax({
-                url: '/api/pengajuan/operasional',
+                url: '{{ '/api/pengajuan/operasional' }}',
                 headers: {
                     "Authorization": "Bearer" + token
                 },
@@ -124,7 +124,7 @@
 
 
                 $.ajax({
-                    url: '/api/pengajuan/ubah_status/' + id,
+                    url: '{{ '/api/pengajuan/ubah_status/' }}' + id,
                     type: "POST",
                     data: {
                         status: 'dikonfirmasi-operasional'
@@ -156,7 +156,7 @@
                     const frmdata = new FormData(this);
 
                     $.ajax({
-                        url: `/api/orders/${id}?_method=PUT`,
+                        url: `{{ '/api/orders/' }}${id}?_method=PUT`,
                         type: 'POST',
                         data: frmdata,
                         cache: false,

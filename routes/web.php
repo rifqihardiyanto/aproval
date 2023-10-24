@@ -56,7 +56,7 @@ Route::get('/pengajuan/operasional', [OrderController::class, 'list'])->middlewa
 Route::get('/pengajuan/keuangan', [OrderController::class, 'list_2'])->middleware('keuangan');
 Route::get('/pengajuan/admin', [OrderController::class, 'list_3'])->middleware('admin');
 Route::get('/pengajuan/selesai', [OrderController::class, 'list_4']);
-Route::get('/pengajuan/tolak', [OrderController::class, 'list_tolak']);
+Route::get('/pengajuan/semua', [OrderController::class, 'list_tolak']);
 
 Route::get('pengajuan/{id}', [OrderController::class, 'show']);
 

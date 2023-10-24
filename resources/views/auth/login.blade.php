@@ -112,7 +112,7 @@
 
 
                 $.ajax({
-                    url: '/login',
+                    url: '{{ 'login' }}',
                     type: 'post',
                     data: {
                         email: email,
@@ -126,7 +126,7 @@
                         }
 
                         localStorage.setItem('token', data.token)
-                        window.location.href = '/dashboard';
+                        window.location.href = 'dashboard';
                     }
                 })
             })

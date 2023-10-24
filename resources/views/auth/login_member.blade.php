@@ -11,6 +11,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $title }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/detail/logo.png') }}">
+
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet" type="text/css">

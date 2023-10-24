@@ -10,6 +10,8 @@
     <meta name="author" content="">
 
     <title>{{ $title }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/detail/logo.png') }}">
+
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">

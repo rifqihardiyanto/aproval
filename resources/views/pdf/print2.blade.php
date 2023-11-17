@@ -29,9 +29,6 @@ font-family: Arial;">
       text-align: right; margin-right: 90px;" id="company" class="clearfix">
         <div style="margin-bottom: 10px;">PT. NIAGA WASILAH ALKHAIR</div>
         <div style="margin-bottom: 10px;">BUMIRESO, WONOSOBO<br /> KAB. WONOSOBO JAWA TENGAH</div>
-        {{-- <div>(602) 519-0450</div>
-        <div><a style="color: #5D6975;
-  text-decoration: underline;" href="mailto:company@example.com">company@example.com</a></div> --}}
       </div>
       <div id="project">
         <div style="margin-bottom: 10px;"><span style="color: #5D6975;

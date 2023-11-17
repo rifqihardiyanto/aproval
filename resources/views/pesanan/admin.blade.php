@@ -101,8 +101,10 @@
                         "Authorization": "Bearer" + token
                     },
                     success: function(data) {
-                        alert("Pengajuan Berhasil Dikonfirmasi!");
-                        location.reload()
+                        if (!data.success){
+                            alert("Pengajuan Berhasil Dikonfirmasi!");
+                            location.reload()
+                        }
                     }
                 })
             })

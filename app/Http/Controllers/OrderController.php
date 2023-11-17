@@ -223,7 +223,7 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
     
-        $pdf = PDF::loadview('pdf.print2',['order'=>$order]);
+        $pdf = PDF::loadview('pdf.print3',['order'=>$order]);
         return $pdf->stream();
     }
 }

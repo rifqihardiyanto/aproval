@@ -18,26 +18,16 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Id Member</th>
                             <th>Nama Pemohon</th>
-                            <th>Keperluan</th>
-                            <th>Jumlah</th>
-                            <th>Harga</th>
                             <th>Total</th>
-                            <th>Keterangan</th>
                             <th>Konfirmasi</th>
                             <th>Lihat</th>
                         </tr>
                         @foreach ($order as $data )
                             <tr>
                                 <th>{{$loop->iteration}} </th>
-                                <th>{{ $data->id_member }}</th>
                                 <th>{{ $data->nama_pemohon }}</th>
-                                <th>{{ $data->keperluan }}</th>
-                                <th>{{ $data->jumlah }}</th>
-                                <th>Rp. {{ $data->harga }}</th>
-                                <th>Rp. {{ $data->total_harga }}</th>
-                                <th>{{ $data->keterangan }}</th>
+                                <th>Rp. {{ number_format($data->total_harga) }}</th>
                                 <th>{{ $data->status }}</th>
                                 <th><a href="{{ url('pengajuan/'.$data->id) }}"><button type="button" class="btn btn-info">Info</button></a></th>
                             </tr>

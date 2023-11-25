@@ -14,9 +14,7 @@ class AuthController extends Controller
 
     public function index()
     {
-        return view('auth.login',[
-            'title' => 'Login'
-        ]);
+        return view('auth.login');
     }
 
 

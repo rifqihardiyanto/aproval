@@ -56,15 +56,19 @@ Route::get('/pengajuan/operasional', [OrderController::class, 'list'])->middlewa
 Route::get('/pengajuan/keuangan', [OrderController::class, 'list_2'])->middleware('keuangan');
 Route::get('/pengajuan/admin', [OrderController::class, 'list_3'])->middleware('admin');
 Route::get('/pengajuan/selesai', [OrderController::class, 'list_4']);
-Route::get('/pengajuan/semua', [OrderController::class, 'list_tolak']);
+Route::get('/pengajuan/ditolak', [OrderController::class, 'list_tolak']);
 
-Route::get('pengajuan/{id}', [OrderController::class, 'show']);
+Route::get('pengajuan/operasional/{id}', [OrderController::class, 'show_operasional'])->middleware('operasional');
+Route::get('pengajuan/keuangan/{id}', [OrderController::class, 'show_keuangan'])->middleware('keuangan');
+Route::get('pengajuan/admin/{id}', [OrderController::class, 'show_admin'])->middleware('admin');
 
 Route::get('/print/{id}', [OrderController::class, 'print_pdf']);
 
 // 
 Route::get('/data/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 Route::get('/pengajuan', [PengajuanController::class, 'view_pengajuan']);
+
+Route::get('/pengajuan/{id}', [PengajuanController::class, 'view_pengajuan']);
 Route::post('/pengajuan/store', [PengajuanController::class, 'store']);
 
 

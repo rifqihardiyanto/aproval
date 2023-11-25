@@ -31,28 +31,26 @@ class OrderController extends Controller
     }
 
     public function list() {
-        return view('pesanan.operasional', [
-            'title' => 'Pengajuan Baru'
-        ]);
+        $order = Order::with('member')->where('status', 'baru')->orderBy('id', 'desc')->get();
+        return view('pengajuan.operasional', compact('order'));
     }
     public function list_2() {
-        return view('pesanan.keuangan', [
-            'title' => 'Pengajuan Baru'
-        ]);
+        $order = Order::with('member')->where('status', 'dikonfirmasi-operasional')->orderBy('id', 'desc')->get();
+        return view('pengajuan.keuangan', compact('order'));
     }
     public function list_3() {
-        return view('pesanan.admin', [
+        return view('pengajuan.admin', [
             'title' => 'Pengajuan Baru'
         ]);
     }
     public function list_4() {
-        return view('pesanan.selesai', [
+        return view('pengajuan.selesai', [
             'title' => 'Pengajuan Dikonfirmasi'
         ]);
     }
 
     public function list_tolak() {
-        return view('pesanan.ditolak', [
+        return view('pengajuan.ditolak', [
             'title' => 'Pengajuan Ditolak'
         ]);
     }
@@ -164,10 +162,9 @@ class OrderController extends Controller
         ]);
     }
 
-    public function baru()
+    public function baru($id_order)
     {
-        $order = Order::with('member')->where('status', 'baru')->orderBy('id', 'desc')->get();
-
+        $order = Order::find($id_order)->with('member');
         return response()->json([
             'data' =>$order
         ]);
@@ -225,5 +222,17 @@ class OrderController extends Controller
     
         $pdf = PDF::loadview('pdf.print3',['order'=>$order]);
         return $pdf->stream();
+    }
+
+    public function show_operasional($id_order)
+    {
+        $order = Order::findOrFail($id_order);
+        return view('show.operasional', compact('order'));
+    }
+    
+    public function show_keuangan($id_order)
+    {
+        $order = Order::findOrFail($id_order);
+        return view('show.keuangan', compact('order'));
     }
 }

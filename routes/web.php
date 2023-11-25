@@ -68,7 +68,7 @@ Route::get('/print/{id}', [OrderController::class, 'print_pdf']);
 Route::get('/data/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 Route::get('/pengajuan', [PengajuanController::class, 'view_pengajuan']);
 
-Route::get('/pengajuan/{id}', [PengajuanController::class, 'view_pengajuan']);
+Route::get('/pengajuan/{id}', [OrderController::class, 'show_member']);
 Route::post('/pengajuan/store', [PengajuanController::class, 'store']);
 
 

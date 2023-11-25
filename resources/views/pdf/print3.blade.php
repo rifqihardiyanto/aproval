@@ -78,7 +78,7 @@
             <div class="alignright">
                 <div class="row">
                     <div class="col">
-                        <h5>{{ $order->created_at->format('d/m/y') }}</h5>
+                        <h5>{{ $order->created_at->format('d-M-Y') }}</h5>
                     </div>
                 </div>
             </div>

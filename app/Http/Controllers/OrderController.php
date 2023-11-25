@@ -235,4 +235,10 @@ class OrderController extends Controller
         $order = Order::findOrFail($id_order);
         return view('show.keuangan', compact('order'));
     }
+
+    public function show_member($id_order)
+    {
+        $order = Order::findOrFail($id_order);
+        return view('show.member', compact('order'));
+    }
 }

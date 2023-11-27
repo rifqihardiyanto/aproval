@@ -117,7 +117,7 @@
 
 
                 $.ajax({
-                    url: '{{ '/api/pengajuan/ubah_status/' }}' + id,
+                    url: '{{ '/public/api/pengajuan/ubah_status/' }}' + id,
                     type: "POST",
                     data: {
                         status: 'dikonfirmasi-keuangan'
@@ -138,7 +138,7 @@
                 $('#modal-form').modal('show')
                 const id = $(this).data('id');
 
-                $.get('/api/orders/' + id, function({
+                $.get('/public/api/orders/' + id, function({
                     data
                 }) {
                     $('input[name="status"]').val('');
@@ -151,7 +151,7 @@
                     const frmdata = new FormData(this);
 
                     $.ajax({
-                        url: `{{ '/api/orders/' }}${id}?_method=PUT`,
+                        url: `{{ '/public/api/orders/' }}${id}?_method=PUT`,
                         type: 'POST',
                         data: frmdata,
                         cache: false,

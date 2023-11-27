@@ -47,7 +47,7 @@
 
             const token = localStorage.getItem('token');
             $.ajax({
-                url: '/api/pengajuan/selesai',
+                url: '/public/api/pengajuan/selesai',
                 headers: {
                     "Authorization": "Bearer" + token
                 },
@@ -81,7 +81,7 @@
 
 
                 $.ajax({
-                    url: '/api/pesanan/ubah_status/' + id,
+                    url: '/public/api/pesanan/ubah_status/' + id,
                     type: "POST",
                     data: {
                         status: 'Dikirim'

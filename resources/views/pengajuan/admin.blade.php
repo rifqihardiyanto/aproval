@@ -47,7 +47,7 @@
 
             const token = localStorage.getItem('token');
             $.ajax({
-                url: '{{ '/api/pengajuan/admin' }}',
+                url: '{{ '/public/api/pengajuan/admin' }}',
                 headers: {
                     "Authorization": "Bearer" + token
                 },
@@ -83,7 +83,7 @@
 
 
                 $.ajax({
-                    url: '{{ '/api/pengajuan/ubah_status/' }}' + id,
+                    url: '{{ '/public/api/pengajuan/ubah_status/' }}' + id,
                     type: "POST",
                     data: {
                         status: 'Selesai'

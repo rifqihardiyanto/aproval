@@ -56,7 +56,7 @@
 
             const token = localStorage.getItem('token');
             $.ajax({
-                url: '/api/pengajuan/ditolak',
+                url: '/public/api/pengajuan/ditolak',
                 headers: {
                     "Authorization": "Bearer" + token
                 },

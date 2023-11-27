@@ -117,45 +117,13 @@
             }
 
             const token = localStorage.getItem('token');
-            // $.ajax({
-            //     url: '/api/pengajuan/operasional/' + id,
-            //     headers: {
-            //         "Authorization": "Bearer" + token
-            //     },
-            //     success: function({
-            //         data
-            //     }) {
-
-            //         let row;
-            //         data.map(function(val, index) {
-            //             row += `
-            //         <tr> 
-            //             <td> ${index+1} </td> 
-            //             <td> ${date(val.created_at)} </td> 
-            //             <td> ${val.member.nama_member} </td> 
-            //             <td> ${val.nama_pemohon} </td> 
-            //             <td> ${val.keperluan} </td> 
-            //             <td> ${val.keterangan} </td> 
-            //             <td> ${val.jumlah} </td> 
-            //             <td> ${rupiah(val.harga)} </td> 
-            //             <td> ${rupiah(val.total_harga)} </td> 
-            //             <td>
-            //                 <a href="" data-id="${val.id}" class="btn mb-2 btn-success btn-accept">Accept</a>    
-            //                 <a data-toogle="modal" href="#modal-form" data-id="${val.id}" class="btn mb-2 btn-danger modal-ubah">Reject</a>    
-            //             </td>
-            //         </tr>`;
-            //         });
-
-            //         $('tbody').append(row);
-            //     }
-            // });
 
             $(document).on('click', '.btn-accept', function() {
                 const id = $(this).data('id')
 
 
                 $.ajax({
-                    url: '{{ '/api/pengajuan/ubah_status/' }}' + id,
+                    url: '{{ '/public/api/pengajuan/ubah_status/' }}' + id,
                     type: "POST",
                     data: {
                         status: 'dikonfirmasi-operasional'
@@ -176,7 +144,7 @@
                 $('#modal-form').modal('show')
                 const id = $(this).data('id');
 
-                $.get('/api/orders/' + id, function({
+                $.get('/public/api/orders/' + id, function({
                     data
                 }) {
                     $('input[name="status"]').val('');
@@ -189,7 +157,7 @@
                     const frmdata = new FormData(this);
 
                     $.ajax({
-                        url: `{{ '/api/orders/' }}${id}?_method=PUT`,
+                        url: `{{ '/public/api/orders/' }}${id}?_method=PUT`,
                         type: 'POST',
                         data: frmdata,
                         cache: false,

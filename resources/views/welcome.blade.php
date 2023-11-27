@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Submmision | Nashir</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('img/detail/logo.png') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/nashir.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

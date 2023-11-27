@@ -8,12 +8,12 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Dashboard</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/nashir.png') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -105,8 +105,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">Nama</span>
-                                                    <small class="text-muted">Role</small>
+                                                    <span class="fw-semibold d-block">{{Auth::guard('webmember')->user()->nama_member}}</span>
                                                 </div>
                                             </div>
                                         </a>
@@ -162,19 +161,7 @@
                                 </script>
                                 , made with ❤️ by
                                 <a href="https://themeselection.com" target="_blank"
-                                    class="footer-link fw-bolder">TB</a>
-                            </div>
-                            <div>
-                                <a href="https://themeselection.com/license/" class="footer-link me-4"
-                                    target="_blank">License</a>
-                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
-                                    Themes</a>
-
-                                <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                                    target="_blank" class="footer-link me-4">Documentation</a>
-
-                                <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                                    target="_blank" class="footer-link me-4">Support</a>
+                                    class="footer-link fw-bolder">NASHIR</a>
                             </div>
                         </div>
                     </footer>

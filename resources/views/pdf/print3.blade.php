@@ -86,17 +86,12 @@
 
         <div class="row mt-5">
             <div class="col">
-                <h5>Melalui surat ini, Saya</h5>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-2">
-                <h5><b>NAMA: {{ $order->nama_pemohon }} </b></h5>
+                <h5>Melalui surat ini, Saya {{ $order->nama_pemohon }}</h5>
             </div>
         </div>
 
 
-        <div class="row mt-5">
+        <div class="row mt-2">
             <div class="col">
                 <h5>Bermaksud mengajukan permohonan pengajuan dengan detail sebagia berikut</h5>
             </div>
@@ -129,6 +124,7 @@
         <div class="row mb-5">
             <div class="col">
                 <h5>Demikian permohonan ini saya ajukan, atas perhatiannya saya ucapkan terima kasih.</h5>
+                <h5>Status dari system : {{ $order->status }}</h5>
             </div>
         </div>
         <br><br>

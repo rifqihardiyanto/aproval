@@ -11,9 +11,7 @@ class DashboardMemberController extends Controller
      */
     public function index()
     {
-        return view('member.index',[
-            'title' => 'Dashboard Member'
-        ]);
+        return view('member.index');
     }
 
     /**

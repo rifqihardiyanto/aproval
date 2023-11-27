@@ -58,7 +58,7 @@
                         <!-- Logo -->
                         <div class="app-brand justify-content-center">
                             <a href="index.html" class="app-brand-link gap-2">
-                                <span class="app-brand-logo demo">
+                                {{-- <span class="app-brand-logo demo">
                                     <svg width="25" viewBox="0 0 25 42" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <defs>
@@ -105,13 +105,13 @@
                                             </g>
                                         </g>
                                     </svg>
-                                </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                                </span> --}}
+                                <span class="app-brand-text demo text-body fw-bolder">Nashir</span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2">Welcome to Sneat! 👋</h4>
-                        <p class="mb-4">Please sign-in to your account and start the adventure</p>
+                        <h4 class="mb-2">Selamat Datang di System Pengajuan Nashir! 👋</h4>
+                        <p class="mb-4">Silakan login untuk melakukan konfirmasi pengajuan!</p>
                         @if (session('status'))
                             <div class="text-success text-start mb-3">
                                 <span class="text-2">{{ session('status') }}</span>

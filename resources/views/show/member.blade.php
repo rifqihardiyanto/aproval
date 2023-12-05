@@ -41,6 +41,10 @@
                         <th>Total Harga :</th>
                         <td>Rp. {{ number_format($order->total_harga) }}</td>
                     </tr>
+                    <tr>
+                        <th>Status :</th>
+                        <td>{{ $order->status }}</td>
+                    </tr>
                     </tr>
                 </thead>
                 <tbody></tbody>

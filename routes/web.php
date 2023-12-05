@@ -61,6 +61,7 @@ Route::get('/pengajuan/ditolak', [OrderController::class, 'list_tolak']);
 Route::get('pengajuan/operasional/{id}', [OrderController::class, 'show_operasional'])->middleware('operasional');
 Route::get('pengajuan/keuangan/{id}', [OrderController::class, 'show_keuangan'])->middleware('keuangan');
 Route::get('pengajuan/admin/{id}', [OrderController::class, 'show_admin'])->middleware('admin');
+Route::get('pengajuan/selesai/{id}', [OrderController::class, 'show_selesai']);
 
 Route::get('/print/{id}', [OrderController::class, 'print_pdf']);
 

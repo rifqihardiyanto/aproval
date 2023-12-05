@@ -44,9 +44,8 @@ class OrderController extends Controller
         ]);
     }
     public function list_4() {
-        return view('pengajuan.selesai', [
-            'title' => 'Pengajuan Dikonfirmasi'
-        ]);
+        $order = Order::with('member')->where('status', 'selesai')->orderBy('id', 'desc')->get();
+        return view('pengajuan.selesai', compact('order'));
     }
 
     public function list_tolak() {
@@ -240,5 +239,10 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id_order);
         return view('show.member', compact('order'));
+    }
+    public function show_selesai($id_order)
+    {
+        $order = Order::findOrFail($id_order);
+        return view('show.selesai', compact('order'));
     }
 }

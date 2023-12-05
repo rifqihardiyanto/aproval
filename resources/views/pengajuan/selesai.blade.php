@@ -11,20 +11,28 @@
                     <tr>
                         <th>No</th>
                         <th>Tanggal Pengajuan</th>
-                        <th>Member</th>
                         <th>Nama Pemohon</th>
                         <th>Keperluan</th>
-                        <th>Keterangan</th>
-                        <th>Jumlah</th>
-                        <th>Harga</th>
                         <th>Total Harga</th>
-                        <th>Aksi</th>
+                        <th>Konfirmasi</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody class="table-border-bottom-0">
+                    @foreach ($order as $data)
+                    <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$loop->iteration}}</strong></td>
+                        <td>{{ $data->created_at->format('d M Y') }}</td>
+                        <td>{{ $data->nama_pemohon }}</td>
+                        <td>{{ $data->keperluan }}</td>
+                        <td>Rp. {{ number_format($data->total_harga) }}</td>
+                        <td><a href="{{ url('pengajuan/selesai') }}/{{ $data->id }}"><button class="btn btn-primary">Lihat</button></a></td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>
+    <!--/ Bootstrap Table with Header Dark -->
 @endsection
 
 @push('js')

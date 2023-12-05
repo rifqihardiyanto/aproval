@@ -14,10 +14,10 @@ class MemberSeeder extends Seeder
     public function run(): void
     {
         Member::create([
-            'nama_member' => 'Bisma',
+            'nama_member' => 'Streamer',
             'no_hp' => '081245678978',
-            'email' => 'b@gmail.com',
-            'password' => bcrypt('123456'),
+            'email' => 'streamer@mynashir.com',
+            'password' => bcrypt('streamernashir123'),
         ]);
     }
 }
